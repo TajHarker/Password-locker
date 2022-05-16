@@ -13,8 +13,7 @@ for i in range(8):
 
   
 
-# Faster and more efficient
-#random.choice(string)
+random.choice(string)
 
 
 
