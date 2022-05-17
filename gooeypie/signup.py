@@ -10,7 +10,7 @@ def generate_password(event):
         myword = str(myword)
         array.append(myword)
         i += 1
-    passgen_lbl.text = print('Your three passwords are') + array[0] + array[1] + array[2]
+    passgen_lbl.text = ('Your three passwords are', array[0] + array[1] + array[2])
     
 app = gp.GooeyPieApp('Password Locker')
 app.width = 600
