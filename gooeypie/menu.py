@@ -55,9 +55,9 @@ def signup(event):
     passgen_lbl = gp.Label(app, '')
     array = (array[0] + array[1] + array[2])
     
-    passgen_lbl = str('Your primary keys are:') + array
     passgen_lbl.fontsize = 20
     passgen_lbl.align = 'center'
+    passgen_lbl = str('Your primary keys are:') + (array)
     menu_btn = gp.Button(app, 'Menu', menu)
     app.set_grid(3, 3)
     app.add(menu_btn, 3, 2, align='center', valign='middle')
