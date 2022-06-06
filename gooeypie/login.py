@@ -3,9 +3,9 @@ import gooeypie as gp
 
 def login(event):
     if pass3_inp.text == 'bestpassword':
-        status_lbl.text = '✔ Access granted!'
+        status_lbl.text = 'Access granted!'
     else:
-        status_lbl.text = '❌ Access denied!'
+        status_lbl.text = 'Access denied!'
 
 app = gp.GooeyPieApp('Password Locker')
 app.width = 600
