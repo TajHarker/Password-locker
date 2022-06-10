@@ -5,10 +5,12 @@ import random
 
 customtkinter.set_appearance_mode("dark")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
+app = customtkinter.CTk()
+app.geometry("600x600")
+app.title("CustomTkinter simple_example.py")
 
-
-def login():
-    pass
+def close():
+    app.deiconify
 
 def signup():
     app = customtkinter.CTk()
@@ -60,11 +62,14 @@ def main():
     button_1 = customtkinter.CTkButton(master=frame_1, command=signup, text="Sign Up")
     button_1.place(relx=0.5, rely=0.6, anchor=CENTER)
 
+    app.deiconify()
     app.mainloop()
 
 def login_page():
     customtkinter.set_appearance_mode("dark")  # Modes: "System" (standard), "Dark", "Light"
     customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
+
+    textWidget.tag_config('hidden', elide=True)
 
     app = customtkinter.CTk()
     app.geometry("600x600")
@@ -96,7 +101,7 @@ def encdec():
     button_1 = customtkinter.CTkButton(master=frame_1, command=login_page, text="Log In")
     button_1.place(relx=0.5, rely=0.4, anchor=CENTER)
 
-    button_1 = customtkinter.CTkButton(master=frame_1, command=login, text="Sign Up")
+    button_1 = customtkinter.CTkButton(master=frame_1, command=close, text="Sign Up")
     button_1.place(relx=0.5, rely=0.6, anchor=CENTER)
 
     app.mainloop()
