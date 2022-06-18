@@ -109,13 +109,13 @@ def login_page():
     label_1.place(relx=0.5, rely=0.2, anchor=CENTER)
     label_1. configure(font=("Helveta", 35,))
 
-    entry_1 = customtkinter.CTkEntry(master=frame_1, placeholder_text="")
+    entry_1 = customtkinter.CTkEntry(master=frame_1, placeholder_text="●●●●●")
     entry_1.place(relx=0.5, rely=0.4, anchor=CENTER)
 
-    entry_2 = customtkinter.CTkEntry(master=frame_1, placeholder_text="")
+    entry_2 = customtkinter.CTkEntry(master=frame_1, placeholder_text="●●●●●")
     entry_2.place(relx=0.5, rely=0.5, anchor=CENTER)
 
-    entry_3 = customtkinter.CTkEntry(master=frame_1, placeholder_text="")
+    entry_3 = customtkinter.CTkEntry(master=frame_1, placeholder_text="●●●●●")
     entry_3.place(relx=0.5, rely=0.6, anchor=CENTER)
 
     button_1 = customtkinter.CTkButton(master=frame_1, command=login_button, text="Log In")
@@ -153,11 +153,67 @@ def encode_page():
     frame_1 = customtkinter.CTkFrame(master=enc)
     frame_1.pack(pady=60, padx=60, fill="both", expand=True)
 
+    def encodepassword_button():
+        password = entry_1.get()
+        print(password)
+        enc.withdraw()
+        encodepassword_page()
+        
     entry_1 = customtkinter.CTkEntry(master=frame_1, placeholder_text="")
     entry_1.place(relx=0.5, rely=0.45, anchor=CENTER)
 
-    button_1 = customtkinter.CTkButton(master=frame_1, command=signup_page, text="Encode")
+    button_1 = customtkinter.CTkButton(master=frame_1, command=encodepassword_button, text="Encode")
     button_1.place(relx=0.5, rely=0.6, anchor=CENTER)
+
+    app.mainloop()
+
+def encodepassword_page():
+    enc = customtkinter.CTk()
+    enc.geometry("600x600")
+    enc.title("Password-Locker")
+    frame_1 = customtkinter.CTkFrame(master=enc)
+    frame_1.pack(pady=60, padx=60, fill="both", expand=True)
+
+
+    def encdec_button():
+        enc.withdraw()
+        encdec_page()
+
+    entry_1 = customtkinter.CTkEntry(master=frame_1, placeholder_text="")
+    entry_1.place(relx=0.5, rely=0.45, anchor=CENTER)
+
+    button_1 = customtkinter.CTkButton(master=frame_1, command=encdec_button, text="Menu")
+    button_1.place(relx=0.5, rely=0.6, anchor=CENTER)
+
+    label_1 = customtkinter.CTkLabel(master=frame_1, text='Encoded', justify=tkinter.LEFT)
+    label_1.pack(pady=12, padx=10)
+    label_1.place(relx=0.5, rely=0.525, anchor=CENTER)
+    label_1. configure(font=("Helveta", 15))
+
+    app.mainloop()
+
+def decodepassword_page():
+    enc = customtkinter.CTk()
+    enc.geometry("600x600")
+    enc.title("Password-Locker")
+    frame_1 = customtkinter.CTkFrame(master=enc)
+    frame_1.pack(pady=60, padx=60, fill="both", expand=True)
+
+
+    def encdec_button():
+        enc.withdraw()
+        encdec_page()
+
+    entry_1 = customtkinter.CTkEntry(master=frame_1, placeholder_text="")
+    entry_1.place(relx=0.5, rely=0.45, anchor=CENTER)
+
+    button_1 = customtkinter.CTkButton(master=frame_1, command=encdec_button, text="Menu")
+    button_1.place(relx=0.5, rely=0.6, anchor=CENTER)
+
+    label_1 = customtkinter.CTkLabel(master=frame_1, text='Encoded', justify=tkinter.LEFT)
+    label_1.pack(pady=12, padx=10)
+    label_1.place(relx=0.5, rely=0.525, anchor=CENTER)
+    label_1. configure(font=("Helveta", 15))
 
     app.mainloop()
 
@@ -168,10 +224,14 @@ def decode_page():
     frame_1 = customtkinter.CTkFrame(master=enc)
     frame_1.pack(pady=60, padx=60, fill="both", expand=True)
 
+    def decodepassword_button():
+        enc.withdraw()
+        decodepassword_page()
+
     entry_1 = customtkinter.CTkEntry(master=frame_1, placeholder_text="")
     entry_1.place(relx=0.5, rely=0.45, anchor=CENTER)
 
-    button_1 = customtkinter.CTkButton(master=frame_1, command=signup_page, text="Decode")
+    button_1 = customtkinter.CTkButton(master=frame_1, command=decodepassword_button, text="Decode")
     button_1.place(relx=0.5, rely=0.6, anchor=CENTER)
 
     app.mainloop()
