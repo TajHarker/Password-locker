@@ -2,6 +2,7 @@ import tkinter
 import customtkinter
 from tkinter import *
 import random
+import SQL
 
 customtkinter.set_appearance_mode("dark")  # Modes: "System" (standard), "Dark", "Light"
 customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
@@ -41,11 +42,12 @@ def passgen_page():
     i = 0
     array = []
     while i < 3:
-        lines = open("gooeypie/words.txt").readlines() 
+        lines = open("words.txt").readlines() 
         myword = random.choice(lines)
         myword = str(myword)
         array.append(myword)
         i += 1
+    SQL.signup(array)
 
     frame_1 = customtkinter.CTkFrame(master=passgen)
     frame_1.pack(pady=20, padx=60, fill="both", expand=True)
@@ -53,7 +55,7 @@ def passgen_page():
     label_1 = customtkinter.CTkLabel(master=frame_1, text=array[0], justify=tkinter.LEFT)
     label_1.pack(pady=12, padx=10)
     label_1.place(relx=0.2, rely=0.55, anchor=CENTER)
-    label_1. configure(font=("Futura", 20))
+    label_1.configure(font=("Futura", 20))
 
     label_2 = customtkinter.CTkLabel(master=frame_1, text=array[1], justify=tkinter.LEFT)
     label_2.pack(pady=12, padx=10)
@@ -101,8 +103,15 @@ def login_page():
     frame_1.pack(pady=60, padx=60, fill="both", expand=True)
 
     def login_button():
-        login.withdraw()
-        encdec_page()
+        if SQL.login(entry_1.get(), entry_2.get(), entry_3.get()) == True:
+            print(entry_1.get())
+            login.withdraw()
+            encdec_page()
+        else:
+            label_2 = customtkinter.CTkLabel(master=frame_1, text='Incorrect Primary Keys', justify=tkinter.LEFT)
+            label_2.pack(pady=12, padx=10)
+            label_2.place(relx=0.5, rely=0.7, anchor=CENTER)
+            label_2. configure(font=("Helveta", 15,))
 
     label_1 = customtkinter.CTkLabel(master=frame_1, text='Login', justify=tkinter.LEFT)
     label_1.pack(pady=12, padx=10)
